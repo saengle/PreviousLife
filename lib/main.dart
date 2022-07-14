@@ -4,11 +4,11 @@ import 'dart:math';
 class PreviousLifeList {
   final String name;
   final String image;
+
   PreviousLifeList(this.name, this.image);
 }
 
 void main() {
-
   runApp(const MyApp());
 }
 
@@ -29,6 +29,7 @@ class MyApp extends StatelessWidget {
 
 class FutureExam5 extends StatefulWidget {
   const FutureExam5({Key? key}) : super(key: key);
+
   @override
   State<FutureExam5> createState() => _FutureExam5State();
 }
@@ -38,7 +39,6 @@ class _FutureExam5State extends State<FutureExam5> {
   int setNumber = 0;
   int randomNumber = 0;
   Random random = Random();
-
 
   final previousList = <PreviousLifeList>[
     PreviousLifeList('김태리',
@@ -64,8 +64,10 @@ class _FutureExam5State extends State<FutureExam5> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: const Text('당신의 전생은 ?',
-          style: TextStyle(fontSize: 30),),
+        title: const Text(
+          '당신의 전생은 ?',
+          style: TextStyle(fontSize: 30),
+        ),
       ),
       body: Center(
         child: Column(
@@ -82,15 +84,18 @@ class _FutureExam5State extends State<FutureExam5> {
                   else if (setNumber == 1)
                     Column(
                       children: const [
-                        SizedBox(height: 130,),
+                        SizedBox(
+                          height: 130,
+                        ),
                         CircularProgressIndicator(
                           strokeWidth: 4,
-                          valueColor: AlwaysStoppedAnimation<Color>(Colors.green),
+                          valueColor:
+                              AlwaysStoppedAnimation<Color>(Colors.green),
                         ),
                       ],
                     )
                   else
-                     FutureLife(previousList[randomNumber])
+                    FutureLife(previousList[randomNumber])
                 ],
               ),
             ),
@@ -104,12 +109,10 @@ class _FutureExam5State extends State<FutureExam5> {
                     onPressed: () async {
                       setNumber++;
                       setState(() {});
-                      print(setNumber);
                       await Future.delayed(const Duration(seconds: 3));
                       count++;
                       setNumber++;
                       setState(() {});
-                      print(setNumber);
                     },
                     child: const Text('알아보기'),
                   )
@@ -118,12 +121,10 @@ class _FutureExam5State extends State<FutureExam5> {
                     onPressed: () async {
                       randomNumber = random.nextInt(previousList.length);
                       setNumber--;
-                      print(setNumber);
                       setState(() {});
                       await Future.delayed(const Duration(seconds: 3));
                       count++;
                       setNumber++;
-                      print(setNumber);
                       setState(() {});
                     },
                     child: const Text('다시하기'),
@@ -139,9 +140,8 @@ class _FutureExam5State extends State<FutureExam5> {
 
 class FutureLife extends StatelessWidget {
   final PreviousLifeList previousLifeList;
-   FutureLife(this.previousLifeList, {Key? key}) : super(key: key);
 
-
+  FutureLife(this.previousLifeList, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -156,11 +156,15 @@ class FutureLife extends StatelessWidget {
             fit: BoxFit.cover,
           ),
         ),
-        const SizedBox(height: 15,),
-        Text('당신의 전생은 ${previousLifeList.name} 입니다.',
-        style: const TextStyle(
-          fontSize: 25,
-        ),)
+        const SizedBox(
+          height: 15,
+        ),
+        Text(
+          '당신의 전생은 ${previousLifeList.name} 입니다.',
+          style: const TextStyle(
+            fontSize: 25,
+          ),
+        )
       ],
     );
   }
@@ -168,6 +172,7 @@ class FutureLife extends StatelessWidget {
 
 class Blank extends StatelessWidget {
   const Blank({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return const SizedBox(
@@ -176,4 +181,3 @@ class Blank extends StatelessWidget {
     );
   }
 }
-

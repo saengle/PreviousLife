@@ -2,8 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'dart:math';
 
-Random random = new Random();
-int randomNumber = random.nextInt(8);
 
 
 class FutureExam5 extends StatefulWidget {

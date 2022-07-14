@@ -1,116 +1,176 @@
 import 'package:flutter/material.dart';
-import 'package:grammar_test/future/future.dart';
+import 'dart:math';
+
+class PreviousLifeList {
+  final String _name;
+  final String _image;
+  PreviousLifeList(this._name, this._image);
+}
+
+final previousList = <PreviousLifeList>[];
 
 void main() {
+
+  previousList.add(PreviousLifeList('김태리',
+      'https://img.vogue.co.kr/vogue/2022/05/style_627a16c2b312b.jpeg'));
+  previousList.add(PreviousLifeList('곰',
+      'https://cphoto.asiae.co.kr/listimglink/6/2017072813523484896_2.png'));
+  previousList.add(PreviousLifeList('지렁이',
+      'https://mblogthumb-phinf.pstatic.net/20120806_254/netiang00_13442283438676YEUc_JPEG/naver_com_20120806_134455.jpg?type=w2'));
+  previousList.add(PreviousLifeList('거북이',
+      'https://cdn.thereport.co.kr/news/photo/201904/355_266_4155.jpg'));
+  previousList.add(PreviousLifeList('한효주',
+      'https://t1.daumcdn.net/movie/0007909f71efba0cfe508d68bb479f7592367730'));
+  previousList.add(PreviousLifeList('잠자리',
+      'http://news.kbs.co.kr/data/fckeditor/new/image/2022/05/17/332331652749984161.jpg'));
+  previousList.add(PreviousLifeList('황제펭귄',
+      'http://m.100gom.co.kr/web/product/extra/big/202107/d51ae50fc62f08b528b0e8a43786685a.jpg'));
+  previousList.add(PreviousLifeList('햄스터',
+      'https://images.mypetlife.co.kr/content/uploads/2019/09/09152804/ricky-kharawala-adK3Vu70DEQ-unsplash.jpg'));
+
   runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: const FutureExam(),
+      home: const FutureExam5(),
     );
   }
 }
+//랜덤인트 생성
+Random random = new Random();
+int randomNumber = random.nextInt(7);
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key, required this.title}) : super(key: key);
-
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
-
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
-  // always marked "final".
-
-  final String title;
-
+class FutureExam5 extends StatefulWidget {
+  const FutureExam5({Key? key}) : super(key: key);
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<FutureExam5> createState() => _FutureExam5State();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
-    });
-  }
+class _FutureExam5State extends State<FutureExam5> {
+  var count = 0;
+  var setnumber = 0;
 
   @override
   Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
     return Scaffold(
       appBar: AppBar(
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
+        centerTitle: true,
+        title: const Text('당신의 전생은 ?',
+          style: TextStyle(fontSize: 30),),
       ),
       body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
         child: Column(
-          // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Invoke "debug painting" (press "p" in the console, choose the
-          // "Toggle Debug Paint" action from the Flutter Inspector in Android
-          // Studio, or the "Toggle Debug Paint" command in Visual Studio Code)
-          // to see the wireframe for each widget.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
+          children: [
+            const SizedBox(
+              height: 50,
             ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
+            SizedBox(
+              height: 360,
+              child: Column(
+                children: [
+                  if (setnumber == 0)
+                    const Blank()
+                  else if (setnumber == 1)
+                    Column(
+                      children: [
+                        SizedBox(height: 130,),
+                        const CircularProgressIndicator(
+                          strokeWidth: 4,
+                          valueColor: AlwaysStoppedAnimation<Color>(Colors.green),
+                        ),
+                      ],
+                    )
+                  else
+                    const FutureLife()
+                ],
+              ),
             ),
+            const SizedBox(
+              height: 170,
+            ),
+            Column(
+              children: [
+                if (count == 0)
+                  ElevatedButton(
+                    onPressed: () async {
+                      setnumber++;
+                      setState(() {});
+                      print(setnumber);
+                      await Future.delayed(const Duration(seconds: 3));
+                      count++;
+                      setnumber++;
+                      setState(() {});
+                      print(setnumber);
+                    },
+                    child: const Text('알아보기'),
+                  )
+                else
+                  ElevatedButton(
+                    onPressed: () async {
+                      randomNumber=random.nextInt(7);
+                      setnumber--;
+                      print(setnumber);
+                      setState(() {});
+                      await Future.delayed(const Duration(seconds: 3));
+                      count++;
+                      setnumber++;
+                      print(setnumber);
+                      setState(() {});
+                    },
+                    child: const Text('다시하기'),
+                  ),
+              ],
+            )
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
+
+class FutureLife extends StatelessWidget {
+  const FutureLife({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        ClipRRect(
+          borderRadius: BorderRadius.circular(26.0),
+          child: Image.network(
+            previousList[randomNumber]._image,
+            width: 300,
+            height: 300,
+            fit: BoxFit.cover,
+          ),
+        ),
+        const SizedBox(height: 15,),
+        Text('당신의 전생은 ${previousList[randomNumber]._name} 입니다.',
+        style: const TextStyle(
+          fontSize: 25,
+        ),)
+      ],
+    );
+  }
+}
+
+class Blank extends StatelessWidget {
+  const Blank({Key? key}) : super(key: key);
+  @override
+  Widget build(BuildContext context) {
+    return const SizedBox(
+      width: 300,
+      height: 300,
+    );
+  }
+}
+

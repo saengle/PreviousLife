@@ -81,9 +81,9 @@ class _FutureExam5State extends State<FutureExam5> {
                     const Blank()
                   else if (setnumber == 1)
                     Column(
-                      children: [
+                      children: const [
                         SizedBox(height: 130,),
-                        const CircularProgressIndicator(
+                        CircularProgressIndicator(
                           strokeWidth: 4,
                           valueColor: AlwaysStoppedAnimation<Color>(Colors.green),
                         ),

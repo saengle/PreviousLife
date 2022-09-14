@@ -141,7 +141,7 @@ class _FutureExam5State extends State<FutureExam5> {
 class FutureLife extends StatelessWidget {
   final PreviousLifeList previousLifeList;
 
-  FutureLife(this.previousLifeList, {Key? key}) : super(key: key);
+  const FutureLife(this.previousLifeList, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

@@ -43,16 +43,16 @@ extension StringExt on String {
     }
   }
 
-
-  int takeWhile(bool Function(String ch) function) {
-    int check = 0;
-    bool start = false;
-    for (int i = 0; i < length; i++) {
-      if (function(this[i])) {
-        check == 1 ? start = true : start = false;
-        check++;
-      }
-    }
-    return substring();
-  }
+  //
+  // int takeWhile(bool Function(String ch) function) {
+  //   int check = 0;
+  //   bool start = false;
+  //   for (int i = 0; i < length; i++) {
+  //     if (function(this[i])) {
+  //       check == 1 ? start = true : start = false;
+  //       check++;
+  //     }
+  //   }
+  //   return substring();
+  // }
 }

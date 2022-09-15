@@ -32,8 +32,10 @@ String solution(List<String> texts) {
   String helloCombined = hello + combinedList;
   return helloCombined.substring(0, helloCombined.length - 1) + '.';
 }
+// String에 대입해서 더하는 방식은 새로운 스트링을 계속 캐쉬에 만들어내는거라 양이 늘어날수록 느려짐. (위의 방법)
 
 String solutions(List<String> texts) {
   final result = texts.fold<String>('Hello ', (prev, next) => '$prev$next,');
   return result.toString().substring(0, result.length - 1) + '.';
 }
+// 위의 느려지는 요소를 수정한 방법.

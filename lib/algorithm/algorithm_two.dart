@@ -55,11 +55,48 @@
 //   int result = 15 - (c_1 + c_2 + c_3 + c_4);
 //   return result.toString();
 // }
-void main() {
-  print(solution('4444'));
-  print(solution('3353'));
-}
+// import 'dart:developer';
+// import 'dart:io';
+// import '';
+//
+// void main() {
+//   // 4자
+//   print(solution('4444'));
+//   print(solution('3353'));
+// }
+//
+// String solution(String n) {
+//   return n.split('').toSet().length == 1 ? n : 'No';
+// }
 
-String solution(String n) {
-  return n.split('').toSet().length == 1 ? n : 'No';
+import 'dart:convert';
+import 'dart:io';
+
+//https://gravel-pike-705.notion.site/3888a2da668c47b88c2e311a1f5f312d
+// 문제풀이
+void main() {
+  String line = stdin.readLineSync(encoding: utf8)!;
+
+  int a = int.parse(line.split(' ')[0]);
+  int b = int.parse(line.split(' ')[1]);
+  int R = int.parse(line.split(' ')[2]);
+
+  int N = int.parse(stdin.readLineSync(encoding: utf8)!);
+
+  List<String> result = [];
+
+  for (int i = 0; i < N; i++) {
+    String line = stdin.readLineSync(encoding: utf8)!;
+    int x = int.parse(line.split(' ')[0]);
+    int y = int.parse(line.split(' ')[1]);
+    int A = (a - (x)) * (a - (x));
+    int B = (b - (y)) * (b - (y));
+    bool answer = (A + B >= R * R);
+    if (answer) {
+      result.add('silent');
+    } else {
+      result.add('noisy');
+    }
+  }
+  result.forEach(print);
 }
